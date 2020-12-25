@@ -21,6 +21,10 @@ Reverse Engineering
 Forensics
 ---
 
+```bash
+strings file.*
+```
+
 Binary Exploitation
 --
 
