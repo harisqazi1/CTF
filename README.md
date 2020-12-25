@@ -46,6 +46,11 @@ Binary Exploitation
 Web Exploitation
 --
 
+Looking for Robots file
+```bash
+IP ADDRESS/robots.txt
+```
+
 Windows & Linux Machines
 ------
 
