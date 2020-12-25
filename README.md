@@ -60,6 +60,10 @@ Forensics
 strings file.* #prints all the readable text from a file. Works good with 'grep'
 ```
 
+[Digital Invisible Ink Toolkit](http://diit.sourceforge.net/download.php)
+
+[Steghide](http://steghide.sourceforge.net/index.php)
+
 Binary Exploitation
 --
 
