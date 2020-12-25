@@ -37,7 +37,7 @@ Forensics
 ---
 
 ```bash
-strings file.* #prints all the readable text from a file
+strings file.* #prints all the readable text from a file. Works good with 'grep'
 ```
 
 Binary Exploitation
