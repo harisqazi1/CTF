@@ -7,6 +7,11 @@ WORK IN PROGRESS
 General
 --------
 
+Netcat:
+```
+nc IP_ADDRESS PORT_NUMBER
+```
+
 Cryptography
 ------
 
@@ -50,6 +55,8 @@ Looking for Robots file
 ```bash
 IP ADDRESS/robots.txt
 ```
+
+>Using Inpect Element and View Page Source
 
 Windows & Linux Machines
 ------
