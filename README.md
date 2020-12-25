@@ -4,6 +4,24 @@ A compilation of tools, links, and resources for Capture the Flag competitions o
 
 WORK IN PROGRESS
 
+General
+--------
+
+Cryptography
+------
+
+Reverse Engineering
+--
+
+Forensics
+---
+
+Binary Exploitation
+--
+
+Web Exploitation
+--
+
 Windows & Linux Machines
 ------
 
