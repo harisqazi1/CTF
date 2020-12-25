@@ -1,5 +1,5 @@
 # CTF Resource
-A compilation of tools, links, and resources for Capture the Flag competitions or penetration tests.
+A compilation of tools, links, and resources for Capture the Flag competitions or penetration tests. If a command does not work, run "sudo apt-get (or package installer for system) install command" to download it. These all work for Kali Linux.
 
 
 WORK IN PROGRESS
@@ -12,7 +12,7 @@ Cryptography
 
 Decimal to Binary:
 ```bash
-echo "obase=2;number" | bc #number=number you want to convert
+echo "obase=2;number" | bc #number=number you want to convert 
 ```
 
 Reverse Engineering
@@ -22,7 +22,7 @@ Forensics
 ---
 
 ```bash
-strings file.*
+strings file.* #prints all the readable text from a file
 ```
 
 Binary Exploitation
