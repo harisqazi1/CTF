@@ -60,9 +60,15 @@ Forensics
 strings file.* #prints all the readable text from a file. Works good with 'grep'
 ```
 
-[Digital Invisible Ink Toolkit](http://diit.sourceforge.net/download.php)
+[Digital Invisible Ink Toolkit](http://diit.sourceforge.net/download.php) for Image Steganography
 
-[Steghide](http://steghide.sourceforge.net/index.php)
+[Steghide](http://steghide.sourceforge.net/index.php) for Image Steganography
+
+[Exiftool](https://exiftool.org/) for viewing EXIF data from an image
+
+[Wireshark](https://www.wireshark.org/) for Network Captures
+
+[Binwalk](https://tools.kali.org/forensics/binwalk) for searching a binary image for files or strings
 
 Binary Exploitation
 --
