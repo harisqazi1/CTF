@@ -12,7 +12,15 @@ Cryptography
 
 Decimal to Binary:
 ```bash
-echo "obase=2;number" | bc #number=number you want to convert 
+echo "obase=2;VALUE" | bc #number=number you want to convert 
+```
+Hexadecimal to Binary
+```bash
+echo "ibase=16;VALUE"|bc #Do NOT include "0x" before the value
+```
+Hexadecimal to Ascii
+```bash
+echo -e '\xVALUE' #Do NOT include "0x" before the value
 ```
 
 Reverse Engineering
