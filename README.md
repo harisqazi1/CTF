@@ -15,22 +15,16 @@ nc IP_ADDRESS PORT_NUMBER
 Cryptography
 ------
 
-Decimal to Binary:
-```bash
-echo "obase=2;VALUE" | bc #number=number you want to convert 
-```
-Hexadecimal to Binary
-```bash
-echo "ibase=16;VALUE"|bc #Do NOT include "0x" before the value
-```
-Hexadecimal to Ascii
-```bash
-echo -e '\xVALUE' #Do NOT include "0x" before the value
-```
-Base64 Decode
-```
-echo "VALUE" | base64 -d #Enter string for VALUE
-```
+Decimal to Binary:```echo "obase=2;VALUE" | bc #number=number you want to convert ```
+
+Hexadecimal to Binary:```echo "ibase=16;VALUE"|bc #Do NOT include "0x" before the value```
+
+Hexadecimal to Ascii:```echo -e '\xVALUE' #Do NOT include "0x" before the value```
+
+Binary to Ascii:```echo BINARY_WITH_SPACES_BETWEEN-WORDS | perl -lape '$_=pack"(B8)*",@F'```
+
+Base64 Decode:```echo "VALUE" | base64 -d #Enter string for VALUE```
+
 Vigenere Cipher
 
 Example:
@@ -49,6 +43,15 @@ Example:
 Tools to crack a Ceasar Cipher:
 
 [cryptii.com](https://cryptii.com/pipes/caesar-cipher)
+
+Morse Code
+
+Example:
+```.--. .. -.-. --- -.-. - ..-. { -- ----- .-. ... ...-- -.-. ----- -.. ...-- .---- ... ..-. ..- -. ..--- -.... ---.. ...-- ---.. ..--- ....- -.... .---- ----- } ```
+
+Tools to crack a Ceasar Cipher:
+
+[Morse Code Decoder](https://tech.pookey.co.uk/non-wp/encoder-decoder.php)
 
 Reverse Engineering
 --
@@ -77,9 +80,7 @@ Web Exploitation
 --
 
 Looking for Robots file
-```bash
-IP ADDRESS/robots.txt
-```
+```IP ADDRESS/robots.txt```
 
 *Using Inpect Element and View Page Source*
 
