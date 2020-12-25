@@ -10,6 +10,11 @@ General
 Cryptography
 ------
 
+Decimal to Binary:
+```bash
+echo "obase=2;number" | bc #number=number you want to convert
+```
+
 Reverse Engineering
 --
 
