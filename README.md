@@ -27,13 +27,28 @@ Hexadecimal to Ascii
 ```bash
 echo -e '\xVALUE' #Do NOT include "0x" before the value
 ```
+Base64 Decode
+```
+echo "VALUE" | base64 -d #Enter string for VALUE
+```
 Vigenere Cipher
+
+Example:
 
 ![Vigenere](https://github.com/harisqazi1/CTF/blob/main/images/Vigenere%20Cipher%20Look.png)
 
 Tools to crack a Vigenere Cipher:
 
 [Decode.fr](https://www.dcode.fr/vigenere-cipher)
+
+Ceasar Cipher
+
+Example:
+picoCTF{ynkooejcpdanqxeykjrbdofgkq}
+
+Tools to crack a Ceasar Cipher:
+
+[cryptii.com](https://cryptii.com/pipes/caesar-cipher)
 
 Reverse Engineering
 --
@@ -56,7 +71,7 @@ Looking for Robots file
 IP ADDRESS/robots.txt
 ```
 
->Using Inpect Element and View Page Source
+*Using Inpect Element and View Page Source*
 
 Windows & Linux Machines
 ------
