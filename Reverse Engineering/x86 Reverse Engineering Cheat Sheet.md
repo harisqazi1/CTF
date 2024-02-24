@@ -87,6 +87,13 @@ Following examples use the mov instruction.
 |Indirect Displacement|`mov dest, 8(%rax)`|D(%R); R is register; D is displacement; source reads from memory of \[%R+D]|
 |Indirect Scaled-Index|`mov dest, 8(%rsp, %rcx, 4)`|D(%RB,%RI,S); RB is register for base; RI is register for index (0 if empty); D is displacement (0 if empty); S is scale 1, 2, 4, or 8 (1 if empty); Source reads from memory of \[%RB + D + S\*%RI]|
 
+### Assembly Tools
+
+The following are tools/commands you can use to get the assembly code from a ELF executable.
+
+- `objdump -d /path/to/binary`
+- `gdb -q /path/to/binary`, then `info functions`, and `disassemble /m main`
+
 ### Practicing Assembly Knowledge
 - [CS 61: Systems Programming and Machine Organization (2023) Assembly Exercises](https://cs61.seas.harvard.edu/site/2023/AsmEx/#gsc.tab=0)
 - [Microcorruption](https://microcorruption.com/map)
@@ -94,8 +101,47 @@ Following examples use the mov instruction.
 
 ## C
 
+I won't talk about all of C here. I did find a great course at https://www.cc4e.com/. I will talk about the exploitation aspects here as well.
+
+### Vulnerable Functions
+
+Usually, in a CTF if you see the following functions, they are meant to be exploited. Sometimes, they are meant to be stepping stones to be able to get the actual flag. Here are some of the following:
+
+|Function |Safe-equivalent Alternative|Function Purpose|
+|---------|---------------------------|----------------|
+|`gets()`|`fgets()`|read characters|
+|`strcpy()`|`strncpy()`|copy content of the buffer|
+|`strcat()`|`strncat()`|buffer concatenation|
+|`sprintf()`|`snprintf()`|fill buffer with data of different types|
+|`(f)scanf()`||read from STDIN|
+|`getwd()`||return working directory|
+|`realpath()`||return absolute (full) path|
+
+
+### Binary Debugging/Rev-Eng Tools
+
+- [GDB](https://sourceware.org/gdb/)
+	+ Plugins:
+		+ [gef](https://github.com/hugsy/gef)
+		+ [PEDA](https://github.com/longld/peda)
+		+ [pwndbg](https://github.com/pwndbg/pwndbg)
+- [Cutter](https://github.com/rizinorg/cutter)
+- [Ghidra](https://github.com/NationalSecurityAgency/ghidra)
+- [IDA Free](https://hex-rays.com/ida-free/)
+
+### Practicing C pwn/rev-eng
+- [Exploit Education - Phoenix](https://exploit.education/phoenix/)
+- [pwn.college - Software Exploitation](https://pwn.college/software-exploitation/)
+- [Exploit Education - Fusion](https://exploit.education/fusion/)
+- [ROP Emporium](https://ropemporium.com/index.html)
+- [pwnable.kr](https://pwnable.kr/)
+- [pwnable.tw](https://pwnable.tw/)
+- [pwnable.xyz](https://pwnable.xyz/challenges/)
+- [ForeverCTF](https://forever.isss.io/)
 
 ## Sources
 - https://cs61.seas.harvard.edu/site/2018/Asm1/
 - https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
 - https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
+- https://owasp.org/www-community/attacks/Buffer_overflow_attack
+- https://dayzerosec.com/blog/2021/02/02/getting-started.html
