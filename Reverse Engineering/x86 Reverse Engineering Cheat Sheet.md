@@ -138,6 +138,8 @@ Usually, in a CTF if you see the following functions, they are meant to be explo
 - [pwnable.tw](https://pwnable.tw/)
 - [pwnable.xyz](https://pwnable.xyz/challenges/)
 - [ForeverCTF](https://forever.isss.io/)
+- [Crackmes](https://crackmes.one/)
+- [Root Me - Cracking](https://www.root-me.org/en/Challenges/Cracking/)
 
 ## Sources
 - https://cs61.seas.harvard.edu/site/2018/Asm1/
